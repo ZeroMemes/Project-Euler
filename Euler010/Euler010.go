@@ -3,17 +3,15 @@ package main
 import "math"
 
 func main() {
-	primes := 1
-	num := 1
+	sum := 0
 
-	for primes < 10001 {
-		num += 2
-		if isPrime(num) {
-			primes++
+	for i := 1; i < 2000000; i++ {
+		if isPrime(i) {
+			sum += i
 		}
 	}
 
-	println(num)
+	println(sum)
 }
 
 func isPrime(n int) bool {
