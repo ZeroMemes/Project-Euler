@@ -1,9 +1,5 @@
 package main
 
-import (
-	"math"
-)
-
 type Node struct {
 	value  int64
 	factor int64
@@ -22,7 +18,7 @@ func main() {
 
 	// Find the largest gamer
 	current = input.next
-	for true {
+	for {
 		largest = max(current.factor, largest)
 		if current.next == nil {
 			largest = max(current.value, largest)
@@ -35,7 +31,7 @@ func main() {
 }
 
 func resolveNode(node *Node) *Node {
-	for i := int64(2); i < int64(math.Ceil(math.Sqrt(float64(node.value)))); i++ {
+	for i := int64(2); i*i <= node.value; i++ {
 		if node.value%i == 0 {
 			node.next = &Node{node.value / i, i, nil}
 			return node.next
