@@ -18,7 +18,7 @@ func divisors(n int) int {
 	}
 
 	factors := 0
-	for i := 1; i*i < n; i++ {
+	for i := 1; i*i <= n; i++ {
 		if n%i == 0 {
 			factors += 2
 		}
