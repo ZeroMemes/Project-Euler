@@ -51,7 +51,7 @@ func get(grid [][]int, x, y int) int {
 	if x < 0 || y < 0 || x >= len(grid[0]) || y >= len(grid) {
 		return 0
 	}
-	return grid[x][y]
+	return grid[y][x]
 }
 
 func max(a, b int) int {
