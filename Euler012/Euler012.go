@@ -1,20 +1,15 @@
 package main
 
 func main() {
-	for i := 1; ; i++ {
-		triangle := triangle(i)
-		if divisors(triangle) > 500 {
-			println(triangle)
+	num := 1
+	for i := 1; ; {
+		if divisors(num) > 500 {
+			println(num)
 			break
 		}
+		i++
+		num += i
 	}
-}
-
-func triangle(n int) int {
-	if n == 1 {
-		return 1
-	}
-	return n + triangle(n-1)
 }
 
 func divisors(n int) int {
