@@ -16,7 +16,7 @@ func binomialCoefficient(n, k int) int64 {
 	k = min(k, n-k)
 	c := int64(1)
 	for i := 0; i < k; i++ {
-		c = c * (int64(n) - int64(i)) / (int64(i) + 1)
+		c = c * int64(n-i) / int64(i+1)
 	}
 	return c
 }
