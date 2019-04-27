@@ -1,5 +1,7 @@
 package main
 
+import "math"
+
 func main() {
 	sum := 0
 	for a := 1; a < 10000; a++ {
@@ -13,10 +15,14 @@ func main() {
 }
 
 func d(n int) int {
-	sum := 0
-	for i := 1; i <= n/2; i++ {
+	sum := 1
+	for i := 2; i <= int(math.Sqrt(float64(n))); i++ {
 		if n%i == 0 {
-			sum += i
+			if i == n/i {
+				sum += i
+			} else {
+				sum += i + n/i
+			}
 		}
 	}
 	return sum
