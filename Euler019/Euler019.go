@@ -29,13 +29,7 @@ func getDays(month, year int) int {
 			return 29
 		}
 		return 28
-	case 3:
-		fallthrough
-	case 5:
-		fallthrough
-	case 8:
-		fallthrough
-	case 10:
+	case 3, 5, 8, 10:
 		return 30
 	default:
 		return 31
