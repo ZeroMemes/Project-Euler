@@ -23,10 +23,7 @@ func permutate(permutations *[]string, str string, index int) {
 	for i := index; i < len(str); i++ {
 		// Swap characters
 		chars := []rune(str)
-		ci := chars[i]
-		chars[i] = chars[index]
-		chars[index] = ci
-
+		chars[i], chars[index] = chars[index], chars[i]
 		permutate(permutations, string(chars), index+1)
 	}
 }
