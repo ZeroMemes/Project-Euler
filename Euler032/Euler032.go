@@ -7,8 +7,7 @@ import (
 func main() {
 	solutions := make(map[int]struct{})
 
-	var perms []string
-	permutations("123456789", 0, &perms)
+	perms := getPermutations("123456789")
 
 	for _, perm := range perms {
 		c, _ := strconv.Atoi(perm[5:9])
@@ -33,6 +32,12 @@ func main() {
 	println(sum)
 }
 
+func getPermutations(str string) []string {
+	var perms []string
+	permutations(str, 0, &perms)
+	return perms
+}
+
 func permutations(str string, index int, perms *[]string) {
 	if index == len(str)-1 {
 		*perms = append(*perms, str)
@@ -45,10 +50,6 @@ func permutations(str string, index int, perms *[]string) {
 
 func swap(str string, i1, i2 int) string {
 	ret := []rune(str)
-
-	c := ret[i1]
-	ret[i1] = ret[i2]
-	ret[i2] = c
-
+	ret[i1], ret[i2] = ret[i2], ret[i1]
 	return string(ret)
 }

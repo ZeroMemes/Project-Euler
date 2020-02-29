@@ -1,12 +1,9 @@
 package main
 
-import (
-	"math"
-	"strconv"
-)
+import "strconv"
 
 func main() {
-	max := 0
+	maximum := 0
 
 	for i := 1; i < 1000000; i++ {
 		s := ""
@@ -15,12 +12,12 @@ func main() {
 			v, _ := strconv.Atoi(s)
 
 			if len(s) == 9 && isPandigital1to9(v) {
-				max = int(math.Max(float64(max), float64(v)))
+				maximum = max(maximum, v)
 			}
 		}
 	}
 
-	println(max)
+	println(maximum)
 }
 
 func isPandigital1to9(i int) bool {
@@ -40,4 +37,11 @@ func isPandigital1to9(i int) bool {
 		}
 	}
 	return true
+}
+
+func max(a, b int) int {
+	if a >= b {
+		return a
+	}
+	return b
 }
